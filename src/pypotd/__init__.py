@@ -27,7 +27,6 @@ def generate_multiple(start_date, end_date, seed=DEFAULT_SEED):
             fmt_date = tgt_date.strftime("%m/%d/%y")
             potd = generate(potd_date=tgt_date, seed=seed)
             potd_dict[fmt_date] = potd
-    print(len(potd_dict))
     return potd_dict
 
 
