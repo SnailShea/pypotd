@@ -1,0 +1,7 @@
+*.cfg
+*.pyc
+*.toml
+.env/
+__pycache__/
+dist/
+*.egg-info/
