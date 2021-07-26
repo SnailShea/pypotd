@@ -45,7 +45,7 @@ The `generate_multiple()` function takes a start and end date, as well as an opt
 ```python
 from pypotd import generate_multiple
 
-generate_multiple(start_date="2021-07-23", end_date="2022-07-23")
+generate_multiple(start_date="2021-07-23", end_date="2022-07-28")
 ```
 
 Output (truncated):
@@ -64,7 +64,7 @@ from pypotd import generate_multiple
 
 generate_multiple(
     start_date="2021-07-23",
-    end_date="2022-07-23",
+    end_date="2022-07-28",
     seed="ABCDABCD")
 ```
 
