@@ -1,4 +1,5 @@
 from datetime import datetime
+from string import ascii_uppercase, digits
 
 DATE_REGEX = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
 SEED_REGEX = "^.{4,10}$"
@@ -24,8 +25,5 @@ TABLE2 = [
     [5, 6, 1, 9, 8, 0, 4, 3, 2, 7]
 ]
 
-ALPHANUM = [
-    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D',
-    'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-]
+# 
+ALPHANUM = [digit for digit in digits] + [letter for letter in ascii_uppercase]

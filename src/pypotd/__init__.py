@@ -1,3 +1,5 @@
+from Cryptodome.Cipher import DES
+from Cryptodome.Util.Padding import pad
 from datetime import date, datetime, timedelta
 from re import match
 from .const import ALPHANUM, DATE_REGEX, DEFAULT_DATE, DEFAULT_SEED, SEED_REGEX
@@ -59,3 +61,25 @@ def is_valid_range(start_date, end_date):
         raise ValueError("Date range can only span up to 365 days.")
     else:
         return True
+
+
+def seed_to_DES(seed):
+    # Must be run on unpadded seed, or the seed will exceed the DES block size
+    # TODO: How to produce a valid DES value for default seed when default seed
+    # exceeds DES block size? Truncating does not work, as it produces a different
+    # value than the default DES of DB.B5.CB.D6.11.17.D6.EB. Providing this as a
+    # hardcoded value is viable but less fun.
+    key = bytearray([20, 157, 64, 213, 193, 46, 85, 2])
+    iv = bytearray([0, 0, 0, 0, 0, 0, 0, 0])
+    array = bytearray([])
+    for i in range(0, len(seed)):
+        array.append(ord(seed[i]))
+    des = DES.new(key, DES.MODE_CBC, iv=iv)
+    if len(seed) < 8:
+        print("Seed too small, padding")
+        while len(array) < des.block_size:
+            array.append(int(0))
+    print(f"Array {array} of length {len(array)} with seed length of {len(seed)}")
+    _des_out = des.encrypt(array).hex().upper()
+    des_out = '.'.join(_des_out[i:i+2] for i in range(0, len(_des_out), 2))
+    return des_out
