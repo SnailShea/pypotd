@@ -25,5 +25,5 @@ TABLE2 = [
     [5, 6, 1, 9, 8, 0, 4, 3, 2, 7]
 ]
 
-# 
+#
 ALPHANUM = [digit for digit in digits] + [letter for letter in ascii_uppercase]
