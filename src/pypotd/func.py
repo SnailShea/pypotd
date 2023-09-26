@@ -2,7 +2,7 @@ def validate_date(date):
     from .const import DATE_REGEX
     from re import match
     if not match(DATE_REGEX, date):
-        raise ValueError(f"Not a valid date ({date}), use format yyyy-mm-dd.")
+        raise ValueError("Not a valid date, use format yyyy-mm-dd.")
     return True
 
 
@@ -23,8 +23,7 @@ def validate_seed(seed):
     from .const import DEFAULT_SEED, SEED_REGEX
     from re import match
     if seed != DEFAULT_SEED and not match(SEED_REGEX, seed):
-        raise ValueError(
-            "Not a valid seed. Must be between 4 and 8 characters")
+        raise ValueError("Not a valid seed. Must be between 4 and 8 characters")
     return True
 
 
