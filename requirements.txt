@@ -1,1 +1,1 @@
-pycryptodomex==3.19.0
+des==1.0.6
