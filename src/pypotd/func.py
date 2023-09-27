@@ -85,7 +85,6 @@ def generate_multiple(start_date, end_date, seed=None):
     validate_date_range(start_date, end_date)
     span = iso(end_date) - iso(start_date)
     days = span.days + 1
-    print(days)
     return {fmt(iso(day(i))): generate(day(i), seed) for i in range(0, days)}
 
 
