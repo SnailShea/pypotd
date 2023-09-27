@@ -104,7 +104,7 @@ Despite the fact that ARRIS/CommScope tools limit seed length to between 4 and 8
 ```python
 from pypotd import seed_to_des
 
-seed_to_des("ABCDABCD")
+seed_to_des(seed="ABCDABCD")
 ```
 
 Output:
